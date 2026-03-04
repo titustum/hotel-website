@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800">
+  <defs>
+    <!-- Radial fade mask: bright center, fades to edges -->
+    <radialGradient id="fade" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="white" stop-opacity="1"/>
+      <stop offset="60%"  stop-color="white" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+    <mask id="vignette">
+      <rect width="800" height="800" fill="url(#fade)"/>
+    </mask>
+
+    <!-- Gold dot gradient -->
+    <radialGradient id="dotGold" cx="35%" cy="30%" r="65%">
+      <stop offset="0%"   stop-color="#e6b86a"/>
+      <stop offset="100%" stop-color="#c9933a"/>
+    </radialGradient>
+
+    <!-- Navy dot gradient -->
+    <radialGradient id="dotNavy" cx="35%" cy="30%" r="65%">
+      <stop offset="0%"   stop-color="#2d4168"/>
+      <stop offset="100%" stop-color="#1e2d4a"/>
+    </radialGradient>
+
+    <!-- Cream dot -->
+    <radialGradient id="dotCream" cx="35%" cy="30%" r="65%">
+      <stop offset="0%"   stop-color="#faf8f4"/>
+      <stop offset="100%" stop-color="#e8e0d4"/>
+    </radialGradient>
+
+    <!-- Dot tile: 28x28 grid, varied sizes -->
+    <pattern id="dotTile" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
+      <!-- Primary dot, centred -->
+      <circle cx="14" cy="14" r="3.2" fill="url(#dotNavy)"/>
+      <!-- Corner micro-dots -->
+      <circle cx="0"  cy="0"  r="1.2" fill="url(#dotGold)"  opacity="0.55"/>
+      <circle cx="28" cy="0"  r="1.2" fill="url(#dotGold)"  opacity="0.55"/>
+      <circle cx="0"  cy="28" r="1.2" fill="url(#dotGold)"  opacity="0.55"/>
+      <circle cx="28" cy="28" r="1.2" fill="url(#dotGold)"  opacity="0.55"/>
+    </pattern>
+
+    <!-- Offset dot tile (shifted half-step for a denser feel) -->
+    <pattern id="dotTileOffset" x="14" y="14" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="14" cy="14" r="1.6" fill="url(#dotGold)" opacity="0.4"/>
+    </pattern>
+
+    <!-- Scattered large accent dots -->
+    <pattern id="accentDots" x="0" y="0" width="112" height="112" patternUnits="userSpaceOnUse">
+      <circle cx="56" cy="56" r="6"   fill="url(#dotGold)"  opacity="0.18"/>
+      <circle cx="0"  cy="0"  r="4"   fill="url(#dotNavy)"  opacity="0.12"/>
+      <circle cx="112" cy="0" r="4"   fill="url(#dotNavy)"  opacity="0.12"/>
+      <circle cx="0"  cy="112" r="4"  fill="url(#dotNavy)"  opacity="0.12"/>
+      <circle cx="112" cy="112" r="4" fill="url(#dotNavy)"  opacity="0.12"/>
+      <circle cx="28" cy="84" r="2.5" fill="url(#dotGold)"  opacity="0.22"/>
+      <circle cx="84" cy="28" r="2.5" fill="url(#dotGold)"  opacity="0.22"/>
+      <circle cx="84" cy="84" r="2"   fill="url(#dotCream)" opacity="0.35"/>
+      <circle cx="28" cy="28" r="2"   fill="url(#dotCream)" opacity="0.35"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="800" fill="#faf8f4"/>
+
+  <!-- Layer 1: base regular dot grid -->
+  <rect width="800" height="800" fill="url(#dotTile)"/>
+
+  <!-- Layer 2: offset interstitial dots -->
+  <rect width="800" height="800" fill="url(#dotTileOffset)"/>
+
+  <!-- Layer 3: large scattered accent dots -->
+  <rect width="800" height="800" fill="url(#accentDots)"/>
+
+  <!-- Layer 4: vignette fade so edges dissolve gently -->
+  <rect width="800" height="800" fill="url(#dotNavy)" opacity="0.03" mask="url(#vignette)"/>
+
+  <!-- Decorative gold ring in centre -->
+  <circle cx="400" cy="400" r="180" fill="none" stroke="url(#dotGold)" stroke-width="0.6" opacity="0.25" stroke-dasharray="4 6"/>
+  <circle cx="400" cy="400" r="280" fill="none" stroke="url(#dotGold)" stroke-width="0.4" opacity="0.15" stroke-dasharray="2 8"/>
+</svg>
