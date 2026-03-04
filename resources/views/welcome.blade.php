@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chumba Resort – Relax, Dine & Unwind</title>
+    <link rel="icon" type="image/svg+xml" href="{{ asset('images/favicon.svg') }}">
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400;1,600&family=Inter:wght@300;400;500;600&family=Righteous&display=swap"
         rel="stylesheet">
@@ -90,8 +91,7 @@
         class="relative h-screen min-h-150 flex flex-col items-center justify-center text-center overflow-hidden">
         <!-- BG Image -->
         <div class="absolute inset-0 z-0 bg-cover bg-center scale-105 transition-transform duration-6000 ease-out"
-            id="heroBg"
-            style="background-image: url('https://media.expedia.com/media/content/shared/images/travelguides/sem-hotels-tablet.jpg?impolicy=fcrop&w=1920&h=480&q=medium');">
+            id="heroBg" style="background-image: url('{{ asset('images/oplique-resort-image.jpeg') }}');">
         </div>
         <!-- Overlay -->
         <div class="absolute inset-0 z-1 bg-linear-to-b from-[#0f1932]/60 via-[#0f1932]/70 to-[#0f1932]/85"></div>
@@ -109,7 +109,7 @@
             </h1>
             <!-- Subtitle -->
             <p
-                class="text-lg sm:text-xl text-white/80 font-light leading-relaxed max-w-xl mx-auto mb-10 animate-[fadeInUp_0.9s_ease_0.4s_both]">
+                class="hidden md:block text-lg sm:text-xl text-white/80 font-light leading-relaxed max-w-xl mx-auto mb-10 animate-[fadeInUp_0.9s_ease_0.4s_both]">
                 Relax, dine, and unwind at our premium resort nestled in Elgeyo Marakwet County. Where Kenyan
                 hospitality meets refined comfort.
             </p>
@@ -192,8 +192,7 @@
                 <div
                     class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 reveal group">
                     <div class="h-52 overflow-hidden relative">
-                        <img src="https://th.bing.com/th/id/R.b2707ba1682e9bcaedfd5e904de8e55d?rik=H53q8UkNKW7Z4g&riu=http%3a%2f%2fstatic1.squarespace.com%2fstatic%2f64366e4d1691a04141ba488a%2ft%2f648735c186f5a6106dd02d78%2f1686582731640%2fBBQ%2bRecipe%2b-%2bNyama%2bChoma%2bwith%2bKachumbari%2b-%2bShare.jpg%3fformat%3d1500w&ehk=LsoBVmRqfV73m%2fob0SpcYdHNqQfu3GcT5ahlI5Cv%2b4g%3d&risl=&pid=ImgRaw&r=0"
-                            alt="Nyama Choma"
+                        <img src="{{ asset('images/nyama-choma.webp') }}" alt="Nyama Choma"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         <span
                             class="absolute top-3 left-3 bg-navy text-white text-[0.65rem] font-semibold tracking-widest uppercase px-3 py-1 rounded-full">Signature</span>
@@ -499,8 +498,7 @@
                     <!-- Accent card -->
                     <div
                         class="hidden md:block absolute -bottom-8 -right-8 w-44 h-52 rounded-xl overflow-hidden shadow-2xl border-4 border-white">
-                        <img src="https://th.bing.com/th/id/R.b2707ba1682e9bcaedfd5e904de8e55d?rik=H53q8UkNKW7Z4g&riu=http%3a%2f%2fstatic1.squarespace.com%2fstatic%2f64366e4d1691a04141ba488a%2ft%2f648735c186f5a6106dd02d78%2f1686582731640%2fBBQ%2bRecipe%2b-%2bNyama%2bChoma%2bwith%2bKachumbari%2b-%2bShare.jpg%3fformat%3d1500w&ehk=LsoBVmRqfV73m%2fob0SpcYdHNqQfu3GcT5ahlI5Cv%2b4g%3d&risl=&pid=ImgRaw&r=0"
-                            alt="Food" class="w-full h-full object-cover">
+                        <img src="{{ asset('images/nyama-choma.webp') }}" alt="Food" class="w-full h-full object-cover">
                     </div>
                 </div>
 
