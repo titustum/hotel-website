@@ -18,72 +18,128 @@
     <!-- ===== NAVBAR ===== -->
     <nav id="navbar"
         class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 lg:px-10 h-17.5 transition-all duration-300 bg-transparent">
-        <a href="#" class="font-[Righteous] text-2xl text-white tracking-wide">
+
+        <a href="#home" class="font-[Righteous] text-2xl text-white tracking-wide">
             Chumba <span class="text-amber-300">Resort</span>
         </a>
+
         <div class="hidden lg:flex items-center gap-8">
-            <a href="#restaurant"
-                class="text-white/90 text-sm font-medium uppercase tracking-widest hover:text-amber-300 transition-colors duration-300 relative group">
-                Restaurant
+
+            <a href="#home"
+                class="hidden xl:inline text-white/90 text-sm font-medium uppercase tracking-widest hover:text-amber-300 transition-colors duration-300 relative group">
+                Home
                 <span
                     class="absolute -bottom-0.5 left-0 w-0 h-px bg-amber-300 transition-all duration-300 group-hover:w-full"></span>
             </a>
+
             <a href="#accommodation"
                 class="text-white/90 text-sm font-medium uppercase tracking-widest hover:text-amber-300 transition-colors duration-300 relative group">
-                Rooms
+                Accommodation
                 <span
                     class="absolute -bottom-0.5 left-0 w-0 h-px bg-amber-300 transition-all duration-300 group-hover:w-full"></span>
             </a>
+
+            <a href="#restaurant"
+                class="text-white/90 text-sm font-medium uppercase tracking-widest hover:text-amber-300 transition-colors duration-300 relative group">
+                Restaurant & Bar
+                <span
+                    class="absolute -bottom-0.5 left-0 w-0 h-px bg-amber-300 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+
             <a href="#conference"
                 class="text-white/90 text-sm font-medium uppercase tracking-widest hover:text-amber-300 transition-colors duration-300 relative group">
                 Conference
                 <span
                     class="absolute -bottom-0.5 left-0 w-0 h-px bg-amber-300 transition-all duration-300 group-hover:w-full"></span>
             </a>
+
             <a href="#about"
-                class="text-white/90 text-sm font-medium uppercase tracking-widest hover:text-amber-300 transition-colors duration-300 relative group">
+                class="hidden xl:inline text-white/90 text-sm font-medium uppercase tracking-widest hover:text-amber-300 transition-colors duration-300 relative group">
                 About
                 <span
                     class="absolute -bottom-0.5 left-0 w-0 h-px bg-amber-300 transition-all duration-300 group-hover:w-full"></span>
             </a>
+
             <a href="#contact"
+                class="text-white/90 text-sm font-medium uppercase tracking-widest hover:text-amber-300 transition-colors duration-300 relative group">
+                Contact
+                <span
+                    class="absolute -bottom-0.5 left-0 w-0 h-px bg-amber-300 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+
+            <!-- CTA -->
+            <a href="#booking"
                 class="bg-amber-500 hover:bg-amber-400 text-white text-sm font-semibold px-5 py-2.5 rounded-full tracking-wide transition-all duration-300 hover:scale-105">
                 Book Now
             </a>
+
         </div>
+
         <button id="hamburger" class="lg:hidden text-white text-2xl focus:outline-none">
             <i class="fas fa-bars"></i>
         </button>
+
     </nav>
 
     <!-- Mobile Menu -->
     <div id="mobileMenu"
         class="fixed inset-0 z-200 bg-navy flex flex-col p-8 -translate-x-full transition-transform duration-400 ease-in-out">
+
         <div class="flex justify-between items-center mb-12">
             <span class="font-[Righteous] text-xl text-white">Chumba <span class="text-amber-300">Resort</span></span>
-            <button id="menuClose" class="text-white text-2xl"><i class="fas fa-times"></i></button>
+            <button id="menuClose" class="text-white text-2xl">
+                <i class="fas fa-times"></i>
+            </button>
         </div>
+
         <nav class="flex flex-col gap-6">
-            <a href="#restaurant"
-                class="menu-link font-[Cormorant_Garamond] text-3xl font-light text-white border-b border-white/10 pb-4 hover:text-amber-300 transition-colors">Bar
-                & Restaurant</a>
+
+            <a href="#home"
+                class="menu-link font-[Cormorant_Garamond] text-3xl font-light text-white border-b border-white/10 pb-4 hover:text-amber-300 transition-colors">
+                Home
+            </a>
+
             <a href="#accommodation"
-                class="menu-link font-[Cormorant_Garamond] text-3xl font-light text-white border-b border-white/10 pb-4 hover:text-amber-300 transition-colors">Accommodation</a>
+                class="menu-link font-[Cormorant_Garamond] text-3xl font-light text-white border-b border-white/10 pb-4 hover:text-amber-300 transition-colors">
+                Accommodation
+            </a>
+
+            <a href="#restaurant"
+                class="menu-link font-[Cormorant_Garamond] text-3xl font-light text-white border-b border-white/10 pb-4 hover:text-amber-300 transition-colors">
+                Restaurant & Bar
+            </a>
+
             <a href="#conference"
-                class="menu-link font-[Cormorant_Garamond] text-3xl font-light text-white border-b border-white/10 pb-4 hover:text-amber-300 transition-colors">Conference</a>
+                class="menu-link font-[Cormorant_Garamond] text-3xl font-light text-white border-b border-white/10 pb-4 hover:text-amber-300 transition-colors">
+                Conference
+            </a>
+
             <a href="#about"
-                class="menu-link font-[Cormorant_Garamond] text-3xl font-light text-white border-b border-white/10 pb-4 hover:text-amber-300 transition-colors">About
-                Us</a>
+                class="menu-link font-[Cormorant_Garamond] text-3xl font-light text-white border-b border-white/10 pb-4 hover:text-amber-300 transition-colors">
+                About
+            </a>
+
             <a href="#contact"
-                class="menu-link font-[Cormorant_Garamond] text-3xl font-light text-white border-b border-white/10 pb-4 hover:text-amber-300 transition-colors">Contact
-                & Book</a>
+                class="menu-link font-[Cormorant_Garamond] text-3xl font-light text-white border-b border-white/10 pb-4 hover:text-amber-300 transition-colors">
+                Contact
+            </a>
+
+            <a href="#booking"
+                class="menu-link font-[Cormorant_Garamond] text-3xl font-light text-amber-300 border-b border-white/10 pb-4">
+                Book Now
+            </a>
+
         </nav>
+
         <div class="mt-auto flex flex-col gap-3">
-            <a href="tel:+0723874428" class="flex items-center gap-3 text-white/70 text-sm"><i
-                    class="fas fa-phone-alt"></i> +0723 874 428</a>
-            <a href="mailto:info@chumbaresort.com" class="flex items-center gap-3 text-white/70 text-sm"><i
-                    class="fas fa-envelope"></i> info@chumbaresort.com</a>
+            <a href="tel:+0723874428" class="flex items-center gap-3 text-white/70 text-sm">
+                <i class="fas fa-phone-alt"></i> +0723 874 428
+            </a>
+            <a href="mailto:info@chumbaresort.com" class="flex items-center gap-3 text-white/70 text-sm">
+                <i class="fas fa-envelope"></i> info@chumbaresort.com
+            </a>
         </div>
+
     </div>
 
     <!-- ===== HERO ===== -->
@@ -408,6 +464,74 @@
         </div>
     </section>
 
+    <!-- ===== AMENITIES ===== -->
+    <section id="amenities" class="bg-white py-24">
+        <div class="max-w-6xl mx-auto px-6">
+
+            <div class="text-center mb-16 reveal">
+                <span class="text-xs font-bold tracking-[0.18em] uppercase text-amber-500 mb-3 block">
+                    Resort Facilities
+                </span>
+
+                <h2 class="font-[Cormorant_Garamond] text-4xl md:text-5xl font-light text-navy mb-4">
+                    Amenities & Comfort
+                </h2>
+
+                <p class="text-gray-500 text-base leading-relaxed max-w-xl mx-auto">
+                    Enjoy modern comforts and thoughtful facilities designed to make
+                    your stay relaxing, convenient, and memorable.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-center">
+
+                <div class="reveal">
+                    <div class="text-3xl text-amber-500 mb-3">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <p class="text-sm text-gray-600">Free WiFi</p>
+                </div>
+
+                <div class="reveal">
+                    <div class="text-3xl text-amber-500 mb-3">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <p class="text-sm text-gray-600">Secure Parking</p>
+                </div>
+
+                <div class="reveal">
+                    <div class="text-3xl text-amber-500 mb-3">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <p class="text-sm text-gray-600">Restaurant & Bar</p>
+                </div>
+
+                <div class="reveal">
+                    <div class="text-3xl text-amber-500 mb-3">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <p class="text-sm text-gray-600">Conference Rooms</p>
+                </div>
+
+                <div class="reveal">
+                    <div class="text-3xl text-amber-500 mb-3">
+                        <i class="fas fa-concierge-bell"></i>
+                    </div>
+                    <p class="text-sm text-gray-600">Room Service</p>
+                </div>
+
+                <div class="reveal">
+                    <div class="text-3xl text-amber-500 mb-3">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <p class="text-sm text-gray-600">Relaxing Gardens</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
     <!-- ===== CONFERENCE ===== -->
     <section id="conference" class="bg-warm py-24">
         <div class="max-w-6xl mx-auto px-6">
@@ -484,6 +608,45 @@
         </div>
     </section>
 
+
+    <!-- ===== GALLERY ===== -->
+    <section id="gallery" class="bg-cream py-24">
+        <div class="max-w-6xl mx-auto px-6">
+
+            <div class="text-center mb-16 reveal">
+                <span class="text-xs font-bold tracking-[0.18em] uppercase text-amber-500 mb-3 block">
+                    Photo Gallery
+                </span>
+
+                <h2 class="font-[Cormorant_Garamond] text-4xl md:text-5xl font-light text-navy mb-4">
+                    Moments at Chumba Resort
+                </h2>
+
+                <p class="text-gray-500 text-base leading-relaxed max-w-xl mx-auto">
+                    Take a glimpse into the relaxing atmosphere, delicious cuisine,
+                    and beautiful spaces that make every stay memorable.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+
+                <img src="images/gallery1.jpg" class="rounded-xl shadow-sm hover:scale-105 transition duration-300">
+
+                <img src="images/gallery2.jpg" class="rounded-xl shadow-sm hover:scale-105 transition duration-300">
+
+                <img src="images/gallery3.jpg" class="rounded-xl shadow-sm hover:scale-105 transition duration-300">
+
+                <img src="images/gallery4.jpg" class="rounded-xl shadow-sm hover:scale-105 transition duration-300">
+
+                <img src="images/gallery5.jpg" class="rounded-xl shadow-sm hover:scale-105 transition duration-300">
+
+                <img src="images/gallery6.jpg" class="rounded-xl shadow-sm hover:scale-105 transition duration-300">
+
+            </div>
+
+        </div>
+    </section>
+
     <!-- ===== ABOUT ===== -->
     <section id="about" class="bg-white py-24">
         <div class="max-w-6xl mx-auto px-6">
@@ -535,6 +698,120 @@
                     </a>
                 </div>
             </div>
+        </div>
+    </section>
+
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section id="testimonials" class="bg-cream py-24">
+        <div class="max-w-6xl mx-auto px-6">
+
+            <div class="text-center mb-16 reveal">
+                <span class="text-xs font-bold tracking-[0.18em] uppercase text-amber-500 mb-3 block">
+                    Guest Experiences
+                </span>
+
+                <h2 class="font-[Cormorant_Garamond] text-4xl md:text-5xl font-light text-navy mb-4">
+                    What Our Guests Say
+                </h2>
+
+                <p class="text-gray-500 text-base leading-relaxed max-w-xl mx-auto">
+                    Discover why guests love staying at Chumba Resort — from warm hospitality
+                    to unforgettable dining and relaxing accommodations.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 reveal">
+                    <div class="text-amber-400 text-lg mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                        “An amazing experience! The rooms were very comfortable and the
+                        hospitality was exceptional. The nyama choma was the best I've had
+                        in Elgeyo Marakwet.”
+                    </p>
+
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-11 h-11 rounded-full bg-navy text-white flex items-center justify-center font-semibold">
+                            JK
+                        </div>
+
+                        <div>
+                            <div class="text-navy font-semibold text-sm">James Kiptoo</div>
+                            <div class="text-gray-400 text-xs">Guest</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 reveal">
+                    <div class="text-amber-400 text-lg mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                        “Perfect place for meetings and conferences. The facilities were
+                        modern, the staff were professional, and everything was organized
+                        perfectly for our team.”
+                    </p>
+
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-11 h-11 rounded-full bg-navy text-white flex items-center justify-center font-semibold">
+                            SM
+                        </div>
+
+                        <div>
+                            <div class="text-navy font-semibold text-sm">Sarah Mutai</div>
+                            <div class="text-gray-400 text-xs">Corporate Guest</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 reveal">
+                    <div class="text-amber-400 text-lg mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                        “Chumba Resort has a relaxing atmosphere and fantastic food.
+                        The cocktails and fresh juices were incredible. I will definitely
+                        visit again with my family.”
+                    </p>
+
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-11 h-11 rounded-full bg-navy text-white flex items-center justify-center font-semibold">
+                            DN
+                        </div>
+
+                        <div>
+                            <div class="text-navy font-semibold text-sm">Daniel Ngetich</div>
+                            <div class="text-gray-400 text-xs">Visitor</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
     </section>
 
