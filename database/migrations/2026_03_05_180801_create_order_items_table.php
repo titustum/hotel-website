@@ -22,7 +22,7 @@ return new class extends Migration
                 ->constrained()
                 ->cascadeOnDelete();
 
-            $table->integer('quantity')->default(1);
+            $table->unsignedInteger('quantity')->default(1);
 
             $table->decimal('price', 10, 2);
 

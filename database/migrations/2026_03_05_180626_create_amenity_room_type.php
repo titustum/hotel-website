@@ -21,6 +21,8 @@ return new class extends Migration
     $table->foreignId('amenity_id')
         ->constrained()
         ->cascadeOnDelete();
+
+    $table->timestamps();
         });
     }
 

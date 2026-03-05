@@ -16,9 +16,14 @@ return new class extends Migration
 
             $table->string('title')->nullable();
 
-            $table->string('image');
+            $table->enum('category', [
+                'rooms',
+                'food',
+                'conference',
+                'resort'
+            ])->nullable();
 
-            $table->string('category')->nullable();
+            $table->string('image');
 
             $table->text('description')->nullable();
 

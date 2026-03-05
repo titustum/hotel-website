@@ -26,6 +26,12 @@ class RoomBooking extends Model
         'check_out'
     ];
 
+
+    protected $casts = [
+        'check_in' => 'date',
+        'check_out' => 'date',
+    ];
+
     public function room()
     {
         return $this->belongsTo(Room::class);

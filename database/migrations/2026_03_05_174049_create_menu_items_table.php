@@ -25,13 +25,15 @@ return new class extends Migration
 
             $table->string('image')->nullable();
 
-            $table->boolean('is_signature')->default(false);
-            $table->boolean('is_popular')->default(false);
-            $table->boolean('is_premium')->default(false);
+            $table->boolean('is_signature')->default(false)->index();
+            $table->boolean('is_popular')->default(false)->index();
+            $table->boolean('is_premium')->default(false)->index();
 
             $table->boolean('available')->default(true);
 
             $table->timestamps();
+
+            $table->softDeletes();
         });
     }
 
