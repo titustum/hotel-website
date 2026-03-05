@@ -14,27 +14,27 @@ return new class extends Migration
         Schema::create('conference_bookings', function (Blueprint $table) {
             $table->id();
 
-    $table->foreignId('conference_room_id')
-        ->constrained()
-        ->cascadeOnDelete();
+            $table->foreignId('conference_room_id')
+                ->constrained()
+                ->cascadeOnDelete();
 
-    $table->string('client_name');
-    $table->string('phone');
-    $table->string('email')->nullable();
+            $table->string('client_name');
+            $table->string('phone');
+            $table->string('email')->nullable();
 
-    $table->date('event_date');
+            $table->date('event_date');
 
-    $table->integer('attendees')->nullable();
+            $table->integer('attendees')->nullable();
 
-    $table->enum('status', [
-        'pending',
-        'confirmed',
-        'cancelled'
-    ])->default('pending');
+            $table->enum('status', [
+                'pending',
+                'confirmed',
+                'cancelled',
+            ])->default('pending');
 
-    $table->text('notes')->nullable();
+            $table->text('notes')->nullable();
 
-    $table->timestamps();
+            $table->timestamps();
         });
     }
 

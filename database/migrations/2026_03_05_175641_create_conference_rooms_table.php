@@ -14,16 +14,16 @@ return new class extends Migration
         Schema::create('conference_rooms', function (Blueprint $table) {
             $table->id();
 
-    $table->string('name');
-    $table->text('description')->nullable();
+            $table->string('name');
+            $table->text('description')->nullable();
 
-    $table->integer('capacity');
+            $table->integer('capacity');
 
-    $table->decimal('price_per_day', 10, 2);
+            $table->decimal('price_per_day', 10, 2);
 
-    $table->string('image')->nullable();
+            $table->string('image')->nullable();
 
-    $table->timestamps();
+            $table->timestamps();
         });
     }
 

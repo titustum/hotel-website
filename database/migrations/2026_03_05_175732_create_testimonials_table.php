@@ -12,21 +12,21 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('testimonials', function (Blueprint $table) {
-             $table->id();
+            $table->id();
 
-    $table->string('name');
+            $table->string('name');
 
-    $table->string('role')->nullable();
+            $table->string('role')->nullable();
 
-    $table->text('message');
+            $table->text('message');
 
-    $table->integer('rating')->default(5);
+            $table->integer('rating')->default(5);
 
-    $table->string('avatar')->nullable();
+            $table->string('avatar')->nullable();
 
-    $table->boolean('featured')->default(false);
+            $table->boolean('featured')->default(false);
 
-    $table->timestamps();
+            $table->timestamps();
         });
     }
 

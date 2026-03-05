@@ -14,15 +14,15 @@ return new class extends Migration
         Schema::create('galleries', function (Blueprint $table) {
             $table->id();
 
-    $table->string('title')->nullable();
+            $table->string('title')->nullable();
 
-    $table->string('image');
+            $table->string('image');
 
-    $table->string('category')->nullable();
+            $table->string('category')->nullable();
 
-    $table->text('description')->nullable();
+            $table->text('description')->nullable();
 
-    $table->timestamps();
+            $table->timestamps();
         });
     }
 

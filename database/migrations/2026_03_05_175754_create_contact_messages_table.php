@@ -14,23 +14,23 @@ return new class extends Migration
         Schema::create('contact_messages', function (Blueprint $table) {
             $table->id();
 
-    $table->string('name');
+            $table->string('name');
 
-    $table->string('phone')->nullable();
+            $table->string('phone')->nullable();
 
-    $table->string('email')->nullable();
+            $table->string('email')->nullable();
 
-    $table->string('service_interest')->nullable();
+            $table->string('service_interest')->nullable();
 
-    $table->text('message');
+            $table->text('message');
 
-    $table->enum('status', [
-        'new',
-        'read',
-        'replied'
-    ])->default('new');
+            $table->enum('status', [
+                'new',
+                'read',
+                'replied',
+            ])->default('new');
 
-    $table->timestamps();
+            $table->timestamps();
         });
     }
 

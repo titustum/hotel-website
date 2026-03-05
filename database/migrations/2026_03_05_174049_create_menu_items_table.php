@@ -12,26 +12,26 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('menu_items', function (Blueprint $table) {
-             $table->id();
+            $table->id();
 
-    $table->foreignId('menu_category_id')
-        ->constrained()
-        ->cascadeOnDelete();
+            $table->foreignId('menu_category_id')
+                ->constrained()
+                ->cascadeOnDelete();
 
-    $table->string('name');
-    $table->text('description')->nullable();
+            $table->string('name');
+            $table->text('description')->nullable();
 
-    $table->decimal('price', 10, 2);
+            $table->decimal('price', 10, 2);
 
-    $table->string('image')->nullable();
+            $table->string('image')->nullable();
 
-    $table->boolean('is_signature')->default(false);
-    $table->boolean('is_popular')->default(false);
-    $table->boolean('is_premium')->default(false);
+            $table->boolean('is_signature')->default(false);
+            $table->boolean('is_popular')->default(false);
+            $table->boolean('is_premium')->default(false);
 
-    $table->boolean('available')->default(true);
+            $table->boolean('available')->default(true);
 
-    $table->timestamps();
+            $table->timestamps();
         });
     }
 
