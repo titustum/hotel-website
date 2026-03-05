@@ -16,6 +16,8 @@ class GalleryForm
                 TextInput::make('title'),
                 FileUpload::make('image')
                     ->image()
+                    ->disk('public')
+                    ->directory('galleries')
                     ->required(),
                 TextInput::make('category'),
                 Textarea::make('description')

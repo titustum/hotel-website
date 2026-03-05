@@ -18,7 +18,7 @@ class GalleriesTable
             ->columns([
                 TextColumn::make('title')
                     ->searchable(),
-                ImageColumn::make('image'),
+                ImageColumn::make('image')->disk('public'),
                 TextColumn::make('category')
                     ->searchable(),
                 TextColumn::make('created_at')
