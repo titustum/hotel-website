@@ -15,11 +15,35 @@ class RoomBookingsTable
     {
         return $table
             ->columns([
+                TextColumn::make('room_id')
+                    ->numeric()
+                    ->sortable(),
+                TextColumn::make('guest_name')
+                    ->searchable(),
+                TextColumn::make('guest_phone')
+                    ->searchable(),
+                TextColumn::make('guest_email')
+                    ->searchable(),
+                TextColumn::make('check_in')
+                    ->date()
+                    ->sortable(),
+                TextColumn::make('check_out')
+                    ->date()
+                    ->sortable(),
+                TextColumn::make('total_price')
+                    ->money()
+                    ->sortable(),
+                TextColumn::make('status')
+                    ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('deleted_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
