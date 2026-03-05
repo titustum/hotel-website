@@ -11,7 +11,6 @@ use App\Filament\Resources\MenuCategories\Schemas\MenuCategoryInfolist;
 use App\Filament\Resources\MenuCategories\Tables\MenuCategoriesTable;
 use App\Models\MenuCategory;
 use BackedEnum;
-use UnitEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -24,8 +23,6 @@ class MenuCategoryResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
     protected static ?string $recordTitleAttribute = 'name';
-
-    protected static string|UnitEnum|null $navigationGroup = 'Restaurant';
 
     public static function form(Schema $schema): Schema
     {

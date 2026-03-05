@@ -11,7 +11,6 @@ use App\Filament\Resources\ConferenceRooms\Schemas\ConferenceRoomInfolist;
 use App\Filament\Resources\ConferenceRooms\Tables\ConferenceRoomsTable;
 use App\Models\ConferenceRoom;
 use BackedEnum;
-use UnitEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -24,8 +23,6 @@ class ConferenceRoomResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
     protected static ?string $recordTitleAttribute = 'name';
-
-    protected static string|UnitEnum|null $navigationGroup = 'Conference';
 
     public static function form(Schema $schema): Schema
     {

@@ -11,7 +11,6 @@ use App\Filament\Resources\Rooms\Schemas\RoomInfolist;
 use App\Filament\Resources\Rooms\Tables\RoomsTable;
 use App\Models\Room;
 use BackedEnum;
-use UnitEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -24,8 +23,6 @@ class RoomResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
     protected static ?string $recordTitleAttribute = 'room_number';
-
-    protected static string|UnitEnum|null $navigationGroup = 'Accommodation';
 
     public static function form(Schema $schema): Schema
     {
