@@ -29,5 +29,14 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@mail.com',
             'password' => Hash::make('123456789'),
         ]);
+
+        $this->call([
+            AmenitySeeder::class,
+            RoomTypeSeeder::class,
+            RoomSeeder::class,
+            ConferenceRoomSeeder::class,
+            TestimonialSeeder::class,
+            GallerySeeder::class,
+        ]);
     }
 }

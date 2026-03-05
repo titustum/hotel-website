@@ -24,7 +24,9 @@ class ConferenceRoomForm
                     ->required()
                     ->numeric(),
                 FileUpload::make('image')
-                    ->image(),
+                    ->image()
+                    ->disk('public')
+                    ->directory('conference_images'),
             ]);
     }
 }

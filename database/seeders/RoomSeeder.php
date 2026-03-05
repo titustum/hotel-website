@@ -3,14 +3,32 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\Room;
+use App\Models\RoomType;
 
 class RoomSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        //
+        $standard = RoomType::where('name', 'Standard Room')->first();
+        $deluxe = RoomType::where('name', 'Deluxe Room')->first();
+
+        for ($i = 1; $i <= 5; $i++) {
+            Room::create([
+                'room_type_id' => $standard->id,
+                'room_number' => 'S10' . $i,
+                'floor' => '1',
+                'status' => 'available'
+            ]);
+        }
+
+        for ($i = 1; $i <= 3; $i++) {
+            Room::create([
+                'room_type_id' => $deluxe->id,
+                'room_number' => 'D20' . $i,
+                'floor' => '2',
+                'status' => 'available'
+            ]);
+        }
     }
 }

@@ -30,7 +30,9 @@ class RoomTypeForm
                 Toggle::make('featured')
                     ->required(),
                 FileUpload::make('image')
-                    ->image(),
+                    ->image()
+                    ->disk('public')
+                    ->directory('room_images'),
             ]);
     }
 }
