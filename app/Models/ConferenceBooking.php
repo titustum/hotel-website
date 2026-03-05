@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class ConferenceBooking extends Model
 {
@@ -17,11 +17,11 @@ class ConferenceBooking extends Model
         'event_date',
         'attendees',
         'status',
-        'notes'
+        'notes',
     ];
 
     protected $dates = [
-        'event_date'
+        'event_date',
     ];
 
     public function conferenceRoom()

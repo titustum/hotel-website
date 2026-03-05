@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\Testimonial;
+use Illuminate\Database\Seeder;
 
 class TestimonialSeeder extends Seeder
 {
@@ -14,7 +14,7 @@ class TestimonialSeeder extends Seeder
             'role' => 'Guest',
             'message' => 'An amazing experience! The rooms were very comfortable and the hospitality was exceptional. The nyama choma was the best I\'ve had in Elgeyo Marakwet.',
             'rating' => 5,
-            'featured' => true
+            'featured' => true,
         ]);
 
         Testimonial::create([
@@ -22,7 +22,7 @@ class TestimonialSeeder extends Seeder
             'role' => 'Corporate Guest',
             'message' => 'Perfect place for meetings and conferences. The facilities were modern and the staff were professional.',
             'rating' => 5,
-            'featured' => true
+            'featured' => true,
         ]);
 
         Testimonial::create([
@@ -30,7 +30,7 @@ class TestimonialSeeder extends Seeder
             'role' => 'Visitor',
             'message' => 'Chumba Resort has a relaxing atmosphere and fantastic food. The cocktails and fresh juices were incredible.',
             'rating' => 5,
-            'featured' => true
+            'featured' => true,
         ]);
     }
 }

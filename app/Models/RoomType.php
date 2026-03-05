@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class RoomType extends Model
 {
@@ -16,7 +16,7 @@ class RoomType extends Model
         'price_per_night',
         'capacity',
         'featured',
-        'image'
+        'image',
     ];
 
     public function rooms()

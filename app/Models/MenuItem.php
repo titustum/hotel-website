@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class MenuItem extends Model
 {
@@ -18,7 +18,7 @@ class MenuItem extends Model
         'is_signature',
         'is_popular',
         'is_premium',
-        'available'
+        'available',
     ];
 
     public function category()

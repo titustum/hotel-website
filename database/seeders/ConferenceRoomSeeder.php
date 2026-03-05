@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\ConferenceRoom;
+use Illuminate\Database\Seeder;
 
 class ConferenceRoomSeeder extends Seeder
 {

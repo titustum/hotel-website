@@ -20,7 +20,7 @@ return new class extends Migration
                 'rooms',
                 'food',
                 'conference',
-                'resort'
+                'resort',
             ])->nullable();
 
             $table->string('image');

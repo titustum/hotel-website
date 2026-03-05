@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class ConferenceRoom extends Model
 {
@@ -14,7 +14,7 @@ class ConferenceRoom extends Model
         'description',
         'capacity',
         'price_per_day',
-        'image'
+        'image',
     ];
 
     public function bookings()

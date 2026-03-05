@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class RoomBooking extends Model
 {
- use HasFactory;
+    use HasFactory;
 
     protected $fillable = [
         'room_id',
@@ -18,14 +18,13 @@ class RoomBooking extends Model
         'check_out',
         'total_price',
         'status',
-        'notes'
+        'notes',
     ];
 
     protected $dates = [
         'check_in',
-        'check_out'
+        'check_out',
     ];
-
 
     protected $casts = [
         'check_in' => 'date',

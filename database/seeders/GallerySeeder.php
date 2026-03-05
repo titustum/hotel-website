@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\Gallery;
+use Illuminate\Database\Seeder;
 
 class GallerySeeder extends Seeder
 {
@@ -22,7 +22,7 @@ class GallerySeeder extends Seeder
             Gallery::create([
                 'title' => $image['title'],
                 'category' => $image['category'],
-                'image' => 'gallery/sample.jpg'
+                'image' => 'gallery/sample.jpg',
             ]);
         }
     }

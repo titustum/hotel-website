@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\Room;
 use App\Models\RoomType;
+use Illuminate\Database\Seeder;
 
 class RoomSeeder extends Seeder
 {
@@ -16,18 +16,18 @@ class RoomSeeder extends Seeder
         for ($i = 1; $i <= 5; $i++) {
             Room::create([
                 'room_type_id' => $standard->id,
-                'room_number' => 'S10' . $i,
+                'room_number' => 'S10'.$i,
                 'floor' => '1',
-                'status' => 'available'
+                'status' => 'available',
             ]);
         }
 
         for ($i = 1; $i <= 3; $i++) {
             Room::create([
                 'room_type_id' => $deluxe->id,
-                'room_number' => 'D20' . $i,
+                'room_number' => 'D20'.$i,
                 'floor' => '2',
-                'status' => 'available'
+                'status' => 'available',
             ]);
         }
     }

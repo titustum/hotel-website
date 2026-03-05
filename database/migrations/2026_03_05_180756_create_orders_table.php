@@ -31,11 +31,11 @@ return new class extends Migration
             $table->decimal('total_amount', 10, 2)->default(0);
 
             $table->enum('status', [
-    'pending',
-    'preparing',
-    'served',
-    'cancelled',
-])->default('pending')->index();
+                'pending',
+                'preparing',
+                'served',
+                'cancelled',
+            ])->default('pending')->index();
 
             $table->text('notes')->nullable();
 

@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class MenuCategory extends Model
 {
@@ -12,7 +12,7 @@ class MenuCategory extends Model
     protected $fillable = [
         'name',
         'slug',
-        'description'
+        'description',
     ];
 
     public function menuItems()

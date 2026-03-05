@@ -20,16 +20,16 @@ return new class extends Migration
             $table->string('guest_email')->nullable();
 
             $table->date('check_in');
-$table->date('check_out');
+            $table->date('check_out');
 
-$table->index(['room_id', 'check_in', 'check_out']);
+            $table->index(['room_id', 'check_in', 'check_out']);
 
             $table->decimal('total_price', 10, 2)->nullable();
 
             $table->enum('status', [
                 'pending',
                 'confirmed',
-                'cancelled'
+                'cancelled',
             ])->default('pending');
 
             $table->text('notes')->nullable();
