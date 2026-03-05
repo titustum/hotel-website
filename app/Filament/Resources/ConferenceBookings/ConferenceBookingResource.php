@@ -22,7 +22,7 @@ class ConferenceBookingResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $recordTitleAttribute = 'event_date';
+    protected static ?string $recordTitleAttribute = 'client_name';
 
     public static function form(Schema $schema): Schema
     {

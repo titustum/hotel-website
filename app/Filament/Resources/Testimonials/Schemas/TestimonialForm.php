@@ -2,6 +2,9 @@
 
 namespace App\Filament\Resources\Testimonials\Schemas;
 
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
 
 class TestimonialForm
@@ -10,7 +13,19 @@ class TestimonialForm
     {
         return $schema
             ->components([
-                //
+                TextInput::make('name')
+                    ->required(),
+                TextInput::make('role'),
+                Textarea::make('message')
+                    ->required()
+                    ->columnSpanFull(),
+                TextInput::make('rating')
+                    ->required()
+                    ->numeric()
+                    ->default(5),
+                TextInput::make('avatar'),
+                Toggle::make('featured')
+                    ->required(),
             ]);
     }
 }

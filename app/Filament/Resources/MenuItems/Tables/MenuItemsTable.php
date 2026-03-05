@@ -6,6 +6,9 @@ use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
 class MenuItemsTable
@@ -14,7 +17,31 @@ class MenuItemsTable
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('menu_category_id')
+                    ->numeric()
+                    ->sortable(),
+                TextColumn::make('name')
+                    ->searchable(),
+                TextColumn::make('price')
+                    ->money()
+                    ->sortable(),
+                ImageColumn::make('image'),
+                IconColumn::make('is_signature')
+                    ->boolean(),
+                IconColumn::make('is_popular')
+                    ->boolean(),
+                IconColumn::make('is_premium')
+                    ->boolean(),
+                IconColumn::make('available')
+                    ->boolean(),
+                TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //

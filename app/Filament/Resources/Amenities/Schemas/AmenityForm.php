@@ -2,6 +2,8 @@
 
 namespace App\Filament\Resources\Amenities\Schemas;
 
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Schema;
 
 class AmenityForm
@@ -10,7 +12,11 @@ class AmenityForm
     {
         return $schema
             ->components([
-                //
+                TextInput::make('name')
+                    ->required(),
+                TextInput::make('icon'),
+                Textarea::make('description')
+                    ->columnSpanFull(),
             ]);
     }
 }

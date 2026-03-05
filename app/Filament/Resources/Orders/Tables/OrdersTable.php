@@ -1,30 +1,34 @@
 <?php
 
-namespace App\Filament\Resources\ConferenceRooms\Tables;
+namespace App\Filament\Resources\Orders\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
-use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-class ConferenceRoomsTable
+class OrdersTable
 {
     public static function configure(Table $table): Table
     {
         return $table
             ->columns([
-                TextColumn::make('name')
+                TextColumn::make('customer_name')
                     ->searchable(),
-                TextColumn::make('capacity')
+                TextColumn::make('phone')
+                    ->searchable(),
+                TextColumn::make('order_type')
+                    ->searchable(),
+                TextColumn::make('room_id')
                     ->numeric()
                     ->sortable(),
-                TextColumn::make('price_per_day')
+                TextColumn::make('total_amount')
                     ->numeric()
                     ->sortable(),
-                ImageColumn::make('image'),
+                TextColumn::make('status')
+                    ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

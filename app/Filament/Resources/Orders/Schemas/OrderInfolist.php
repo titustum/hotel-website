@@ -1,27 +1,30 @@
 <?php
 
-namespace App\Filament\Resources\ContactMessages\Schemas;
+namespace App\Filament\Resources\Orders\Schemas;
 
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
 
-class ContactMessageInfolist
+class OrderInfolist
 {
     public static function configure(Schema $schema): Schema
     {
         return $schema
             ->components([
-                TextEntry::make('name'),
+                TextEntry::make('customer_name')
+                    ->placeholder('-'),
                 TextEntry::make('phone')
                     ->placeholder('-'),
-                TextEntry::make('email')
-                    ->label('Email address')
+                TextEntry::make('order_type'),
+                TextEntry::make('room_id')
+                    ->numeric()
                     ->placeholder('-'),
-                TextEntry::make('service_interest')
-                    ->placeholder('-'),
-                TextEntry::make('message')
-                    ->columnSpanFull(),
+                TextEntry::make('total_amount')
+                    ->numeric(),
                 TextEntry::make('status'),
+                TextEntry::make('notes')
+                    ->placeholder('-')
+                    ->columnSpanFull(),
                 TextEntry::make('created_at')
                     ->dateTime()
                     ->placeholder('-'),

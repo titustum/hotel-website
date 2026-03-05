@@ -13,6 +13,25 @@ return new class extends Migration
     {
         Schema::create('room_bookings', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('room_id')->constrained()->cascadeOnDelete();
+
+            $table->string('guest_name');
+            $table->string('guest_phone');
+            $table->string('guest_email')->nullable();
+
+            $table->date('check_in');
+            $table->date('check_out');
+
+            $table->decimal('total_price', 10, 2)->nullable();
+
+            $table->enum('status', [
+                'pending',
+                'confirmed',
+                'cancelled'
+            ])->default('pending');
+
+            $table->text('notes')->nullable();
+
             $table->timestamps();
         });
     }

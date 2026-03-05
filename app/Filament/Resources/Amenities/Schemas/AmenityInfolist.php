@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Amenities\Schemas;
 
+use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
 
 class AmenityInfolist
@@ -10,7 +11,18 @@ class AmenityInfolist
     {
         return $schema
             ->components([
-                //
+                TextEntry::make('name'),
+                TextEntry::make('icon')
+                    ->placeholder('-'),
+                TextEntry::make('description')
+                    ->placeholder('-')
+                    ->columnSpanFull(),
+                TextEntry::make('created_at')
+                    ->dateTime()
+                    ->placeholder('-'),
+                TextEntry::make('updated_at')
+                    ->dateTime()
+                    ->placeholder('-'),
             ]);
     }
 }
