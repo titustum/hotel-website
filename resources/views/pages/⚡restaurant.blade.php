@@ -1,5 +1,7 @@
 <?php
 
+//resources\views\pages\⚡restaurant.blade.php
+
 namespace App\Livewire;
 
 use Livewire\Component;
@@ -49,7 +51,7 @@ new class extends Component
 <div class="bg-cream pb-24">
 
     <!-- Hero Section (smaller than homepage) -->
-    <section class="relative h-[50vh] min-h-[400px] flex items-center justify-center text-center overflow-hidden">
+    <section class="relative h-[50vh] min-h-100 flex items-center justify-center text-center overflow-hidden">
         <div class="absolute inset-0 z-0">
             <img src="{{ asset('images/nyama-choma.webp') }}" alt="Chumba Resort landscape"
                 class="w-full h-full object-cover">
@@ -86,10 +88,10 @@ new class extends Component
             </h3>
 
             <a href="{{ route('menu.category', $category->slug) }}"
-                class="text-sm font-semibold text-amber-500 hover:text-navy transition flex items-center gap-1">
+                class="font-[Cormorant_Garamond] text-base font-semibold text-amber-500 hover:text-navy transition flex items-center gap-1">
 
                 View More
-                <i class="fas fa-arrow-right text-xs"></i>
+                <i class="fas fa-chevron-right text-xs"></i>
 
             </a>
 
@@ -99,7 +101,7 @@ new class extends Component
 
         <!-- Menu Grid for this category -->
         <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-7">
-            @foreach ($category->menuItems as $item)
+            @foreach ($category->menuItems->take(4) as $item)
             <div wire:key="{{ $item->id }}"
                 class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 reveal group cursor-pointer"
                 wire:click="showDetails({{ $item->id }})">
@@ -148,31 +150,33 @@ new class extends Component
         </div>
     </div>
 
-    <!-- Details Modal (Alpine.js) – unchanged -->
+    <!-- Details Modal (Alpine.js) – fixed z-index & scrolling -->
     <div x-data="{ open: @entangle('showModal') }" x-show="open" x-cloak class="fixed inset-0 z-50 overflow-y-auto"
         aria-labelledby="modal-title" role="dialog" aria-modal="true">
-        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-            <!-- Background overlay -->
-            <div x-show="open" x-transition:enter="transition ease-out duration-300"
-                x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
-                x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100"
-                x-transition:leave-end="opacity-0" class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
-                @click="open = false"></div>
 
-            <!-- Modal panel -->
-            <div x-show="open" x-transition:enter="transition ease-out duration-300"
-                x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
-                x-transition:leave="transition ease-in duration-200"
-                x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
-                x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                class="inline-block align-bottom bg-white rounded-2xl text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+        <!-- Background overlay (lower z-index) -->
+        <div x-show="open" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200"
+            x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+            class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity z-40" @click="open = false"></div>
+
+        <!-- Modal panel (higher z-index, centered, scrollable) -->
+        <div x-show="open" x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+            x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+            x-transition:leave="transition ease-in duration-200"
+            x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+            x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+            class="relative z-50 flex items-center justify-center min-h-screen px-4 py-6 pointer-events-none">
+
+            <div
+                class="bg-white rounded-2xl text-left shadow-xl transform transition-all max-w-lg w-full max-h-[90vh] overflow-y-auto pointer-events-auto">
                 @if($selectedItem)
                 <div class="relative">
                     <img src="{{ $selectedItem->image ? Storage::url($selectedItem->image) : 'https://via.placeholder.com/600x400' }}"
-                        alt="{{ $selectedItem->name }}" class="w-full h-64 object-cover">
+                        alt="{{ $selectedItem->name }}" class="w-full h-64 object-contain py-2 md:py-3">
                     <button @click="open = false"
-                        class="absolute top-3 right-3 bg-white rounded-full w-8 h-8 flex items-center justify-center text-gray-600 hover:text-gray-900 shadow-md">
+                        class="absolute top-3 right-3 bg-white rounded-full w-8 h-8 flex items-center justify-center text-gray-600 hover:text-gray-900 shadow-md z-10">
                         <i class="fas fa-times"></i>
                     </button>
                 </div>
@@ -211,4 +215,5 @@ new class extends Component
             </div>
         </div>
     </div>
+
 </div>
