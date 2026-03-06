@@ -26,7 +26,7 @@ class GalleryForm
                             ->directory('galleries')
                             ->required(),
                         Select::make('category')
-                        ->options(['Restaurant', 'Accommodation', 'Conference', 'Team Building', 'Others']),
+                            ->options(['Restaurant', 'Accommodation', 'Conference', 'Team Building', 'Others']),
                         Textarea::make('description')
                             ->columnSpanFull(),
 

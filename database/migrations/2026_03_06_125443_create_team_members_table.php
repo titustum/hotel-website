@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('role')->nullable();
             $table->date('joined_on')->nullable();
             $table->text('bio')->nullable();
-            $table->string('status')->default('active'); //active, Left, Dead
+            $table->string('status')->default('active'); // active, Left, Dead
             $table->timestamps();
         });
     }
