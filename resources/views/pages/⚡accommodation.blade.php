@@ -1,4 +1,5 @@
 <?php
+//resources\views\pages\⚡accommodation.blade.php
 
 namespace App\Livewire;
 
@@ -16,8 +17,7 @@ new class extends Component
         $this->roomTypes = RoomType::orderBy('name')->get();
         $this->conferenceRooms = ConferenceRoom::orderBy('name')->get();
     }
-}
-
+};
 ?>
 
 <div class="bg-white">
@@ -107,9 +107,13 @@ new class extends Component
     <section class="py-24 bg-white">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-16 reveal">
-                <span class="text-xs font-bold tracking-[0.18em] uppercase text-amber-500 mb-3 block">Conference</span>
-                <h2 class="font-[Cormorant_Garamond] text-4xl md:text-5xl font-light text-navy mb-4">Meet, Inspire,
-                    Achieve</h2>
+                <a href="{{ route('conference') }}" class="inline-block">
+                    <span
+                        class="text-xs font-bold tracking-[0.18em] uppercase text-amber-500 mb-3 block hover:text-amber-600 transition-colors">Conference</span>
+                    <h2
+                        class="font-[Cormorant_Garamond] text-4xl md:text-5xl font-light text-navy mb-4 hover:text-amber-600 transition-colors">
+                        Meet, Inspire, Achieve</h2>
+                </a>
                 <p class="text-gray-500 text-base leading-relaxed max-w-lg mx-auto">Modern facilities equipped for
                     productive meetings, workshops, training sessions, and corporate events.</p>
             </div>
@@ -150,6 +154,14 @@ new class extends Component
                     </div>
                 </div>
                 @endforeach
+            </div>
+
+            <!-- Optional subtle link to full conference page (already linked in header) -->
+            <div class="text-center mt-12">
+                <a href="{{ route('conference') }}"
+                    class="text-amber-500 hover:text-amber-600 text-sm font-semibold uppercase tracking-wide flex items-center justify-center gap-1 transition-colors">
+                    View All Conference Rooms <i class="fas fa-arrow-right text-xs"></i>
+                </a>
             </div>
         </div>
     </section>

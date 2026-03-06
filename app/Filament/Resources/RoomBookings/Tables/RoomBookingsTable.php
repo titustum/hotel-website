@@ -15,7 +15,7 @@ class RoomBookingsTable
     {
         return $table
             ->columns([
-                TextColumn::make('room_id')
+                TextColumn::make('room.room_number')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('guest_name')

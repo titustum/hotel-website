@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Galleries\Schemas;
 
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
@@ -24,7 +25,8 @@ class GalleryForm
                             ->disk('public')
                             ->directory('galleries')
                             ->required(),
-                        TextInput::make('category'),
+                        Select::make('category')
+                        ->options(['Restaurant', 'Accommodation', 'Conference', 'Team Building', 'Others']),
                         Textarea::make('description')
                             ->columnSpanFull(),
 
