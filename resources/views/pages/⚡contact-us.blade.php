@@ -57,7 +57,7 @@ new class extends Component
     <!-- Hero Section (smaller) -->
     <section class="relative h-[50vh] min-h-75 flex items-center justify-center text-center overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="{{ asset('images/oplique-resort-image.jpeg') }}" alt="Chumba Resort contact"
+            <img src="{{ asset('images/hotel-receptionists.webp') }}" alt="Chumba Resort contact"
                 class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-navy/70"></div>
         </div>

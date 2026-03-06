@@ -6,15 +6,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chumba Resort – Relax, Dine & Unwind</title>
+
+    <title>{{ $title ?? config('app.name') }}</title>
     <link rel="icon" type="image/svg+xml" href="{{ asset('images/favicon.svg') }}">
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400;1,600&family=Inter:wght@300;400;500;600&family=Righteous&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
+    <link rel="manifest" href="{{ asset('images/site.webmanifest') }}">
 
-    <title>{{ $title ?? config('app.name') }}</title>
+    <!-- favicon.svg already there -->
+    <link rel="icon" type="image/svg+xml" href="{{ asset('images/favicon.svg') }}">
+
+    <!-- fallback for older browsers -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon-16x16.png') }}">
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/apple-touch-icon.png') }}">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -24,7 +34,8 @@
 
 <body class="bg-white text-gray-900 font-[Inter] overflow-x-hidden">
 
-    @persist('nav')
+
+    @persist('footer')
     <!-- ===== NAVBAR ===== -->
     <nav id="navbar"
         class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 lg:px-10 h-17.5 transition-all duration-300 bg-transparent }}">
@@ -139,7 +150,10 @@
         </div>
 
     </div>
-    @endpersist
+
+    @endpersist('navbar')
+
+
     <main class="min-h-[60vh]">
         {{ $slot }}
     </main>
@@ -222,59 +236,66 @@
         </div>
     </footer>
 
-    @endpersist
+    @endpersist('footer')
 
     @livewireScripts
 
     <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+
+
         // Scroll-aware navbar
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      navbar.classList.add('bg-navy', 'shadow-lg', '!h-[60px]');
-      navbar.classList.remove('bg-transparent');
-    } else {
-      navbar.classList.remove('bg-navy', 'shadow-lg', '!h-[60px]');
-      navbar.classList.add('bg-transparent');
-    }
-  });
-
-  // Mobile menu
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const menuClose = document.getElementById('menuClose');
-  document.querySelectorAll('.menu-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.remove('translate-x-0')));
-  hamburger.addEventListener('click', () => mobileMenu.classList.add('translate-x-0'));
-  menuClose.addEventListener('click', () => mobileMenu.classList.remove('translate-x-0'));
-
-  // Hero Ken Burns
-//   document.getElementById('heroBg').style.transform = 'scale(1)';
-
-  // Scroll reveal
-  const revealEls = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) {
-        setTimeout(() => {
-          e.target.style.opacity = '1';
-          e.target.style.transform = 'translateY(0)';
-        }, (e.target.dataset.delay || 0));
-        io.unobserve(e.target);
-      }
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+        navbar.classList.add('bg-navy', 'shadow-lg', '!h-[60px]');
+        navbar.classList.remove('bg-transparent');
+        } else {
+        navbar.classList.remove('bg-navy', 'shadow-lg', '!h-[60px]');
+        navbar.classList.add('bg-transparent');
+        }
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-  revealEls.forEach((el, i) => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(28px)';
-    el.style.transition = 'opacity 0.65s ease, transform 0.65s ease';
-    // Stagger siblings in same grid
-    const parent = el.parentElement;
-    const siblings = parent.querySelectorAll('.reveal');
-    const idx = Array.from(siblings).indexOf(el);
-    el.dataset.delay = idx * 100;
-    io.observe(el);
-  });
+    // Mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuClose = document.getElementById('menuClose');
+    document.querySelectorAll('.menu-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.remove('translate-x-0')));
+    hamburger.addEventListener('click', () => mobileMenu.classList.add('translate-x-0'));
+    menuClose.addEventListener('click', () => mobileMenu.classList.remove('translate-x-0'));
+
+    // Hero Ken Burns
+    //   document.getElementById('heroBg').style.transform = 'scale(1)';
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+            setTimeout(() => {
+            e.target.style.opacity = '1';
+            e.target.style.transform = 'translateY(0)';
+            }, (e.target.dataset.delay || 0));
+            io.unobserve(e.target);
+        }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach((el, i) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(28px)';
+        el.style.transition = 'opacity 0.65s ease, transform 0.65s ease';
+        // Stagger siblings in same grid
+        const parent = el.parentElement;
+        const siblings = parent.querySelectorAll('.reveal');
+        const idx = Array.from(siblings).indexOf(el);
+        el.dataset.delay = idx * 100;
+        io.observe(el);
+    });
+
+    });
+
+
     </script>
 </body>
 
