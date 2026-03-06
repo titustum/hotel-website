@@ -29,7 +29,8 @@ class RoomTypesTable
                     ->sortable(),
                 IconColumn::make('featured')
                     ->boolean(),
-                ImageColumn::make('image'),
+                ImageColumn::make('image')
+                    ->disk('public'),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

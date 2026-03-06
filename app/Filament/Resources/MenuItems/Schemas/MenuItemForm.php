@@ -24,7 +24,7 @@ class MenuItemForm
                         Select::make('menu_category_id')
                             ->required()
                             ->options(
-                                fn()=>MenuCategory::pluck('name','id')
+                                fn () => MenuCategory::pluck('name', 'id')
                             ),
                         TextInput::make('name')
                             ->required(),
