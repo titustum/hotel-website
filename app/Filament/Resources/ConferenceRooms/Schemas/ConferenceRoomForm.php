@@ -19,7 +19,8 @@ class ConferenceRoomForm
                     ->columnSpanFull()
                     ->schema([
                         TextInput::make('name')
-                            ->required(),
+                            ->required()
+                            ->columnSpanFull(),
                         Textarea::make('description')
                             ->columnSpanFull(),
                         TextInput::make('capacity')

@@ -20,7 +20,7 @@ class MenuCategoryResource extends Resource
 {
     protected static ?string $model = MenuCategory::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedCake;
 
     protected static ?string $recordTitleAttribute = 'name';
 

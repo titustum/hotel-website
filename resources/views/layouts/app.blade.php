@@ -43,7 +43,7 @@
 
             <a href="{{  route('accommodation') }}"
                 class="text-white/90 text-sm font-medium uppercase tracking-widest hover:text-amber-300 transition-colors duration-300 relative group">
-                Accommodation
+                Accommodation +
                 <span
                     class="absolute -bottom-0.5 left-0 w-0 h-px bg-amber-300 transition-all duration-300 group-hover:w-full"></span>
             </a>
@@ -51,13 +51,6 @@
             <a href="{{  route('restaurant') }}"
                 class="text-white/90 text-sm font-medium uppercase tracking-widest hover:text-amber-300 transition-colors duration-300 relative group">
                 Restaurant & Bar
-                <span
-                    class="absolute -bottom-0.5 left-0 w-0 h-px bg-amber-300 transition-all duration-300 group-hover:w-full"></span>
-            </a>
-
-            <a href="#conference"
-                class="text-white/90 text-sm font-medium uppercase tracking-widest hover:text-amber-300 transition-colors duration-300 relative group">
-                Conference
                 <span
                     class="absolute -bottom-0.5 left-0 w-0 h-px bg-amber-300 transition-all duration-300 group-hover:w-full"></span>
             </a>
@@ -110,17 +103,12 @@
 
             <a href="{{  route('accommodation') }}"
                 class="menu-link font-[Cormorant_Garamond] text-3xl font-light text-white border-b border-white/10 pb-4 hover:text-amber-300 transition-colors">
-                Accommodation
+                Accommodation +
             </a>
 
             <a href="{{  route('restaurant') }}"
                 class="menu-link font-[Cormorant_Garamond] text-3xl font-light text-white border-b border-white/10 pb-4 hover:text-amber-300 transition-colors">
                 Restaurant & Bar
-            </a>
-
-            <a href="#conference"
-                class="menu-link font-[Cormorant_Garamond] text-3xl font-light text-white border-b border-white/10 pb-4 hover:text-amber-300 transition-colors">
-                Conference
             </a>
 
             <a href="{{  route('about') }}"

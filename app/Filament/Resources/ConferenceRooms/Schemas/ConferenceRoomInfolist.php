@@ -26,6 +26,7 @@ class ConferenceRoomInfolist
                         TextEntry::make('price_per_day')
                             ->numeric(),
                         ImageEntry::make('image')
+                            ->disk('public')
                             ->placeholder('-'),
                         TextEntry::make('created_at')
                             ->dateTime()

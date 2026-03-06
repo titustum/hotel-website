@@ -20,7 +20,7 @@ class AmenityResource extends Resource
 {
     protected static ?string $model = Amenity::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedWifi;
 
     protected static ?string $recordTitleAttribute = 'name';
 
