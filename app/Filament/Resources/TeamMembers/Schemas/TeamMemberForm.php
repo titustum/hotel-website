@@ -20,25 +20,33 @@ class TeamMemberForm
                     ->columns(2)
                     ->columnSpanFull()
                     ->schema([
-
                         TextInput::make('name')
                             ->required(),
                         FileUpload::make('image')
                             ->image()
                             ->required()
                             ->disk('public')
-                            ->directory('team_members'),
+                            ->directory('team_members')
+                            ->imageEditor()
+                            ->avatar(),
                         Select::make('gender')
                             ->required()
-                            ->options(['Male', 'Female']),
+                            ->options([
+                                'male'=>'Male',
+                                'female'=>'Female'
+                                ]),
                         TextInput::make('role'),
                         DatePicker::make('joined_on'),
-                        Textarea::make('bio')
-                            ->columnSpanFull(),
                         Select::make('status')
                             ->required()
                             ->default('active')
-                            ->options(['active', 'left', 'dead']),
+                            ->options([
+                                'active'=>'Active',
+                                'left'=>'Left',
+                                'dead'=>'Dead'
+                                ]),
+                        Textarea::make('bio')
+                            ->columnSpanFull(),
                     ]),
             ]);
     }

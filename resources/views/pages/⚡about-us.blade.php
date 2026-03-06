@@ -1,10 +1,17 @@
 <?php
 
 use Livewire\Component;
+use App\Models\TeamMember;
 
 new class extends Component
 {
-    //
+    public $teamMembers = [];
+
+    public function mount()
+    {
+        // Load all active team members from the database
+        $this->teamMembers = TeamMember::where('status', 'active')->get();
+    }
 };
 ?>
 
@@ -124,42 +131,16 @@ new class extends Component
                     your comfort.</p>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Team member 1 -->
+                @foreach($teamMembers as $member)
                 <div class="text-center reveal">
                     <div class="w-32 h-32 rounded-full overflow-hidden mx-auto mb-4 border-4 border-amber-200">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John Doe"
+                        <img src="{{ asset('storage/' . $member->image) }}" alt="{{ $member->name }}"
                             class="w-full h-full object-cover">
                     </div>
-                    <h3 class="font-[Cormorant_Garamond] text-xl font-semibold text-navy">John Kimani</h3>
-                    <p class="text-amber-500 text-sm">General Manager</p>
+                    <h3 class="font-[Cormorant_Garamond] text-xl font-semibold text-navy">{{ $member->name }}</h3>
+                    <p class="text-amber-500 text-sm">{{ $member->role }}</p>
                 </div>
-                <!-- Team member 2 -->
-                <div class="text-center reveal">
-                    <div class="w-32 h-32 rounded-full overflow-hidden mx-auto mb-4 border-4 border-amber-200">
-                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Jane Wanjiku"
-                            class="w-full h-full object-cover">
-                    </div>
-                    <h3 class="font-[Cormorant_Garamond] text-xl font-semibold text-navy">Jane Wanjiku</h3>
-                    <p class="text-amber-500 text-sm">Head Chef</p>
-                </div>
-                <!-- Team member 3 -->
-                <div class="text-center reveal">
-                    <div class="w-32 h-32 rounded-full overflow-hidden mx-auto mb-4 border-4 border-amber-200">
-                        <img src="https://randomuser.me/api/portraits/men/68.jpg" alt="Peter Omondi"
-                            class="w-full h-full object-cover">
-                    </div>
-                    <h3 class="font-[Cormorant_Garamond] text-xl font-semibold text-navy">Peter Omondi</h3>
-                    <p class="text-amber-500 text-sm">Events Coordinator</p>
-                </div>
-                <!-- Team member 4 -->
-                <div class="text-center reveal">
-                    <div class="w-32 h-32 rounded-full overflow-hidden mx-auto mb-4 border-4 border-amber-200">
-                        <img src="https://randomuser.me/api/portraits/women/63.jpg" alt="Mary Chebet"
-                            class="w-full h-full object-cover">
-                    </div>
-                    <h3 class="font-[Cormorant_Garamond] text-xl font-semibold text-navy">Mary Chebet</h3>
-                    <p class="text-amber-500 text-sm">Guest Relations</p>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

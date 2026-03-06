@@ -24,45 +24,46 @@
 
 <body class="bg-white text-gray-900 font-[Inter] overflow-x-hidden">
 
+    @persist('nav')
     <!-- ===== NAVBAR ===== -->
     <nav id="navbar"
         class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 lg:px-10 h-17.5 transition-all duration-300 bg-transparent }}">
 
-        <a href="{{ route('home') }}" class="font-[Righteous] text-2xl text-white tracking-wide">
+        <a href="{{ route('home') }}" wire:navigate class="font-[Righteous] text-2xl text-white tracking-wide">
             Chumba <span class="text-amber-300">Resort</span>
         </a>
 
         <div class="hidden lg:flex items-center gap-8">
 
-            <a href="{{ route('home') }}"
+            <a href="{{ route('home') }}" wire:navigate
                 class="hidden xl:inline text-white/90 text-sm font-medium uppercase tracking-widest hover:text-amber-300 transition-colors duration-300 relative group">
                 Home
                 <span
                     class="absolute -bottom-0.5 left-0 w-0 h-px bg-amber-300 transition-all duration-300 group-hover:w-full"></span>
             </a>
 
-            <a href="{{  route('accommodation') }}"
+            <a href="{{  route('accommodation') }}" wire:navigate
                 class="text-white/90 text-sm font-medium uppercase tracking-widest hover:text-amber-300 transition-colors duration-300 relative group">
                 Accommodation +
                 <span
                     class="absolute -bottom-0.5 left-0 w-0 h-px bg-amber-300 transition-all duration-300 group-hover:w-full"></span>
             </a>
 
-            <a href="{{  route('restaurant') }}"
+            <a href="{{  route('restaurant') }}" wire:navigate
                 class="text-white/90 text-sm font-medium uppercase tracking-widest hover:text-amber-300 transition-colors duration-300 relative group">
                 Restaurant & Bar
                 <span
                     class="absolute -bottom-0.5 left-0 w-0 h-px bg-amber-300 transition-all duration-300 group-hover:w-full"></span>
             </a>
 
-            <a href="{{  route('about') }}"
+            <a href="{{  route('about') }}" wire:navigate
                 class="hidden xl:inline text-white/90 text-sm font-medium uppercase tracking-widest hover:text-amber-300 transition-colors duration-300 relative group">
                 About
                 <span
                     class="absolute -bottom-0.5 left-0 w-0 h-px bg-amber-300 transition-all duration-300 group-hover:w-full"></span>
             </a>
 
-            <a href="{{  route('contact') }}"
+            <a href="{{  route('contact') }}" wire:navigate
                 class="text-white/90 text-sm font-medium uppercase tracking-widest hover:text-amber-300 transition-colors duration-300 relative group">
                 Contact
                 <span
@@ -70,7 +71,7 @@
             </a>
 
             <!-- CTA -->
-            <a href="{{  route('book.room') }}"
+            <a href="{{  route('book.room') }}" wire:navigate
                 class="bg-amber-500 hover:bg-amber-400 text-white text-sm font-semibold px-5 py-2.5 rounded-full tracking-wide transition-all duration-300 hover:scale-105">
                 Book Now
             </a>
@@ -96,32 +97,32 @@
 
         <nav class="flex flex-col gap-6">
 
-            <a href="#home"
+            <a href="{{ route('home') }}" wire:navigate
                 class="menu-link font-[Cormorant_Garamond] text-3xl font-light text-white border-b border-white/10 pb-4 hover:text-amber-300 transition-colors">
                 Home
             </a>
 
-            <a href="{{  route('accommodation') }}"
+            <a href="{{  route('accommodation') }}" wire:navigate
                 class="menu-link font-[Cormorant_Garamond] text-3xl font-light text-white border-b border-white/10 pb-4 hover:text-amber-300 transition-colors">
                 Accommodation +
             </a>
 
-            <a href="{{  route('restaurant') }}"
+            <a href="{{  route('restaurant') }}" wire:navigate
                 class="menu-link font-[Cormorant_Garamond] text-3xl font-light text-white border-b border-white/10 pb-4 hover:text-amber-300 transition-colors">
                 Restaurant & Bar
             </a>
 
-            <a href="{{  route('about') }}"
+            <a href="{{  route('about') }}" wire:navigate
                 class="menu-link font-[Cormorant_Garamond] text-3xl font-light text-white border-b border-white/10 pb-4 hover:text-amber-300 transition-colors">
                 About
             </a>
 
-            <a href="{{  route('contact') }}"
+            <a href="{{  route('contact') }}" wire:navigate
                 class="menu-link font-[Cormorant_Garamond] text-3xl font-light text-white border-b border-white/10 pb-4 hover:text-amber-300 transition-colors">
                 Contact
             </a>
 
-            <a href="{{  route('book.room') }}"
+            <a href="{{  route('book.room') }}" wire:navigate
                 class="menu-link font-[Cormorant_Garamond] text-3xl font-light text-amber-300 border-b border-white/10 pb-4">
                 Book Now
             </a>
@@ -138,13 +139,13 @@
         </div>
 
     </div>
-
+    @endpersist
     <main class="min-h-[60vh]">
         {{ $slot }}
     </main>
 
 
-
+    @persist('footer')
     <!-- ===== FOOTER ===== -->
     <footer class="bg-[#111926] text-white/60 pt-16 pb-8">
         <div class="max-w-6xl mx-auto px-6">
@@ -169,29 +170,32 @@
                 <div>
                     <div class="text-white text-xs font-bold uppercase tracking-[0.15em] mb-5">Explore</div>
                     <ul class="space-y-3">
-                        <li><a href="{{  route('restaurant') }}"
+                        <li><a href="{{  route('restaurant') }}" wire:navigate
                                 class="text-sm hover:text-amber-300 transition-colors">Bar &
                                 Restaurant</a></li>
-                        <li><a href="{{  route('accommodation') }}"
+                        <li><a href="{{  route('accommodation') }}" wire:navigate
                                 class="text-sm hover:text-amber-300 transition-colors">Accommodation</a></li>
                         <li><a href="#conference" class="text-sm hover:text-amber-300 transition-colors">Conference</a>
                         </li>
-                        <li><a href="{{  route('about') }}" class="text-sm hover:text-amber-300 transition-colors">About
+                        <li><a href="{{  route('about') }}" wire:navigate
+                                class="text-sm hover:text-amber-300 transition-colors">About
                                 Us</a></li>
                     </ul>
                 </div>
                 <div>
                     <div class="text-white text-xs font-bold uppercase tracking-[0.15em] mb-5">Services</div>
                     <ul class="space-y-3">
-                        <li><a href="{{  route('accommodation') }}"
+                        <li><a href="{{  route('accommodation') }}" wire:navigate
                                 class="text-sm hover:text-amber-300 transition-colors">Standard
                                 Rooms</a></li>
-                        <li><a href="{{  route('accommodation') }}"
+                        <li><a href="{{  route('accommodation') }}" wire:navigate
                                 class="text-sm hover:text-amber-300 transition-colors">Deluxe
                                 Rooms</a></li>
-                        <li><a href="#conference" class="text-sm hover:text-amber-300 transition-colors">Small
+                        <li><a href="{{  route('conference') }}" wire:navigate
+                                class="text-sm hover:text-amber-300 transition-colors">Small
                                 Conference</a></li>
-                        <li><a href="#conference" class="text-sm hover:text-amber-300 transition-colors">Medium
+                        <li><a href="{{  route('conference') }}" wire:navigate
+                                class="text-sm hover:text-amber-300 transition-colors">Medium
                                 Conference</a></li>
                     </ul>
                 </div>
@@ -212,11 +216,13 @@
                 class="border-t border-white/10 pt-7 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs">
                 <p>© 2025 Chumba Resort. All rights reserved.</p>
                 <p>Designed by
-                    <a href="http://github.com/titustum">Titus Tum</a>
+                    <a href="http://github.com/titustum" target="_blank">Titus Tum</a>
                 </p>
             </div>
         </div>
     </footer>
+
+    @endpersist
 
     @livewireScripts
 
