@@ -34,8 +34,7 @@
 
 <body class="bg-white text-gray-900 font-[Inter] overflow-x-hidden">
 
-
-    @persist('footer')
+    @persist('header')
     <!-- ===== NAVBAR ===== -->
     <nav id="navbar"
         class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 lg:px-10 h-17.5 transition-all duration-300 bg-transparent }}">
@@ -151,15 +150,18 @@
 
     </div>
 
-    @endpersist('navbar')
+
+    @endpersist
+
+
 
 
     <main class="min-h-[60vh]">
         {{ $slot }}
     </main>
 
-
     @persist('footer')
+
     <!-- ===== FOOTER ===== -->
     <footer class="bg-[#111926] text-white/60 pt-16 pb-8">
         <div class="max-w-6xl mx-auto px-6">
@@ -236,67 +238,71 @@
         </div>
     </footer>
 
-    @endpersist('footer')
+    @endpersist
+
 
     @livewireScripts
 
     <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
+        document.addEventListener("livewire:navigated", () => {
+
+            var navbar = document.getElementById('navbar');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('bg-navy', 'shadow-lg', '!h-[60px]');
+                    navbar.classList.remove('bg-transparent');
+                } else {
+                    navbar.classList.remove('bg-navy', 'shadow-lg', '!h-[60px]');
+                    navbar.classList.add('bg-transparent');
+                }
+            });
 
 
-        // Scroll-aware navbar
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-        navbar.classList.add('bg-navy', 'shadow-lg', '!h-[60px]');
-        navbar.classList.remove('bg-transparent');
-        } else {
-        navbar.classList.remove('bg-navy', 'shadow-lg', '!h-[60px]');
-        navbar.classList.add('bg-transparent');
-        }
-    });
+            // Mobile menu
+            const hamburger = document.getElementById('hamburger');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const menuClose = document.getElementById('menuClose');
+            document.querySelectorAll('.menu-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.remove('translate-x-0')));
+            hamburger.addEventListener('click', () => mobileMenu.classList.add('translate-x-0'));
+            menuClose.addEventListener('click', () => mobileMenu.classList.remove('translate-x-0'));
 
-    // Mobile menu
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const menuClose = document.getElementById('menuClose');
-    document.querySelectorAll('.menu-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.remove('translate-x-0')));
-    hamburger.addEventListener('click', () => mobileMenu.classList.add('translate-x-0'));
-    menuClose.addEventListener('click', () => mobileMenu.classList.remove('translate-x-0'));
+            // Hero Ken Burns
+            //   document.getElementById('heroBg').style.transform = 'scale(1)';
 
-    // Hero Ken Burns
-    //   document.getElementById('heroBg').style.transform = 'scale(1)';
+            // Scroll reveal
+            const revealEls = document.querySelectorAll('.reveal');
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach((e, i) => {
+                    if (e.isIntersecting) {
+                        setTimeout(() => {
+                            e.target.style.opacity = '1';
+                            e.target.style.transform = 'translateY(0)';
+                        }, (e.target.dataset.delay || 0));
+                        io.unobserve(e.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -40px 0px'
+            });
 
-    // Scroll reveal
-    const revealEls = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver((entries) => {
-        entries.forEach((e, i) => {
-        if (e.isIntersecting) {
-            setTimeout(() => {
-            e.target.style.opacity = '1';
-            e.target.style.transform = 'translateY(0)';
-            }, (e.target.dataset.delay || 0));
-            io.unobserve(e.target);
-        }
+            revealEls.forEach((el, i) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(28px)';
+                el.style.transition = 'opacity 0.65s ease, transform 0.65s ease';
+                // Stagger siblings in same grid
+                const parent = el.parentElement;
+                const siblings = parent.querySelectorAll('.reveal');
+                const idx = Array.from(siblings).indexOf(el);
+                el.dataset.delay = idx * 100;
+                io.observe(el);
+            });
+
         });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-    revealEls.forEach((el, i) => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(28px)';
-        el.style.transition = 'opacity 0.65s ease, transform 0.65s ease';
-        // Stagger siblings in same grid
-        const parent = el.parentElement;
-        const siblings = parent.querySelectorAll('.reveal');
-        const idx = Array.from(siblings).indexOf(el);
-        el.dataset.delay = idx * 100;
-        io.observe(el);
-    });
-
-    });
-
 
     </script>
+
 </body>
 
 </html>

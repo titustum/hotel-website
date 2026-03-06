@@ -23,7 +23,7 @@ new class extends Component
         $this->roomTypes = App\Models\RoomType::limit(2)->get(); // show only 2 on homepage
         $this->conference_rooms = App\Models\ConferenceRoom::limit(2)->get(); // show only 2
         $this->testimonials = App\Models\Testimonial::where('featured', true)->orWhereNotNull('id')->limit(3)->get();
-        $this->galleries = App\Models\Gallery::limit(6)->get(); // show 6 images
+        $this->galleries = App\Models\Gallery::limit(4)->get(); // show 6 images
         $this->menuItems = App\Models\MenuItem::where('available', true)
             ->orderBy('is_signature', 'desc')
             ->orderBy('is_popular', 'desc')
@@ -360,13 +360,34 @@ new class extends Component
                 </p>
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
-                @foreach ($galleries as $gallery)
-                <a href="{{ route('gallery') }}" class="block">
-                    <img src="{{ Storage::url($gallery->image) }}" alt="{{ $gallery->title ?? 'Gallery' }}"
-                        class="rounded-xl shadow-sm hover:scale-105 h-50 md:h-70 w-full object-cover transition duration-300">
-                </a>
-                @endforeach
+            <div class="max-w-7xl mx-auto px-6">
+                @if($galleries->isEmpty())
+                <p class="text-center text-gray-500">No images in the gallery yet.</p>
+                @else
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    @foreach($galleries as $gallery)
+                    <div wire:key="{{ $gallery->id }}"
+                        class="relative overflow-hidden rounded-xl shadow-sm hover:shadow-xl cursor-pointer group reveal">
+                        <img src="{{ Storage::url($gallery->image) }}" alt="{{ $gallery->title ?? 'Gallery image' }}"
+                            class="w-full h-64 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500">
+                        @if($gallery->title || $gallery->category)
+                        <div
+                            class="absolute inset-0 bg-linear-to-t from-navy/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                            <div>
+                                @if($gallery->category)
+                                <span class="text-amber-300 text-xs font-semibold uppercase tracking-wider">{{
+                                    $gallery->category }}</span>
+                                @endif
+                                @if($gallery->title)
+                                <h3 class="text-white text-lg font-[Cormorant_Garamond]">{{ $gallery->title }}</h3>
+                                @endif
+                            </div>
+                        </div>
+                        @endif
+                    </div>
+                    @endforeach
+                </div>
+                @endif
             </div>
 
             <div class="text-center mt-14 reveal">

@@ -27,7 +27,7 @@ new class extends Component
 
 <div class="bg-white">
     <!-- Hero Section -->
-    <section class="relative h-[50vh] min-h-[400px] flex items-center justify-center text-center overflow-hidden">
+    <section class="relative h-[50vh] min-h-100 flex items-center justify-center text-center overflow-hidden">
         <div class="absolute inset-0 z-0">
             <img src="{{ asset('images/nyama-choma.webp') }}" alt="Chumba Resort gallery"
                 class="w-full h-full object-cover">
@@ -56,7 +56,7 @@ new class extends Component
                         class="w-full h-64 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500">
                     @if($gallery->title || $gallery->category)
                     <div
-                        class="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        class="absolute inset-0 bg-linear-to-t from-navy/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                         <div>
                             @if($gallery->category)
                             <span class="text-amber-300 text-xs font-semibold uppercase tracking-wider">{{
