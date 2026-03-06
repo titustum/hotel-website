@@ -2,16 +2,13 @@
 
 namespace App\Filament\Widgets;
 
+use App\Filament\Resources\RoomBookings\RoomBookingResource;
 use Filament\Tables\Table;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Columns\IconColumn;
-use Filament\Actions\BulkActionGroup;
 use Filament\Widgets\TableWidget;
 use Illuminate\Database\Eloquent\Builder;
 use App\Models\RoomBooking;
 use Carbon\Carbon;
-use Filament\Actions\DeleteAction;
-use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 
 class RecentBookingsTableWidget extends TableWidget
@@ -56,7 +53,7 @@ class RecentBookingsTableWidget extends TableWidget
                 //
             ])
             ->recordActions([
-                ViewAction::make()->url(fn ($record) => route('filament.admin.resources.room-bookings.view', $record)),
+                ViewAction::make()->url(fn ($record) => RoomBookingResource::getUrl('view', ['record'=>$record])),
             ])
             ->toolbarActions([
 

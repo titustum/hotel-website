@@ -14,7 +14,7 @@ new class extends Component
 
     public function mount()
     {
-        $this->roomTypes = RoomType::orderBy('name')->get();
+        $this->roomTypes = RoomType::orderBy('price')->get();
         $this->conferenceRooms = ConferenceRoom::orderBy('name')->get();
     }
 };

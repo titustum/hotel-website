@@ -8,7 +8,7 @@ new class extends Component {
 
     public function mount()
     {
-        $this->conferenceRooms = ConferenceRoom::orderBy('name')->get();
+        $this->conferenceRooms = ConferenceRoom::orderBy('price')->get();
     }
 };
 
