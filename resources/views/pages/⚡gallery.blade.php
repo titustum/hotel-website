@@ -29,8 +29,8 @@ new class extends Component
     <!-- Hero Section -->
     <section class="relative h-[50vh] min-h-[400px] flex items-center justify-center text-center overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-                alt="Chumba Resort gallery" class="w-full h-full object-cover">
+            <img src="{{ asset('images/nyama-choma.webp') }}" alt="Chumba Resort gallery"
+                class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-navy/70"></div>
         </div>
         <div class="relative z-10 px-6">

@@ -55,7 +55,7 @@ new class extends Component
 
 <div class="bg-white">
     <!-- Hero Section (smaller) -->
-    <section class="relative h-[40vh] min-h-[300px] flex items-center justify-center text-center overflow-hidden">
+    <section class="relative h-[50vh] min-h-75 flex items-center justify-center text-center overflow-hidden">
         <div class="absolute inset-0 z-0">
             <img src="{{ asset('images/oplique-resort-image.jpeg') }}" alt="Chumba Resort contact"
                 class="w-full h-full object-cover">

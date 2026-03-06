@@ -49,9 +49,9 @@ new class extends Component
 <div class="bg-cream pb-24">
 
     <!-- Hero Section (smaller than homepage) -->
-    <section class="relative h-[30vh] min-h-[400px] flex items-center justify-center text-center overflow-hidden">
+    <section class="relative h-[50vh] min-h-[400px] flex items-center justify-center text-center overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="{{ asset('images/oplique-resort-image.jpeg') }}" alt="Chumba Resort landscape"
+            <img src="{{ asset('images/nyama-choma.webp') }}" alt="Chumba Resort landscape"
                 class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-navy/70"></div>
         </div>

@@ -24,7 +24,7 @@ new class extends Component
     <!-- Hero Section -->
     <section class="relative h-[50vh] min-h-[400px] flex items-center justify-center text-center overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="{{ asset('images/oplique-resort-image.jpeg') }}" alt="Chumba Resort accommodation"
+            <img src="{{ asset('images/deluxe-room.jpg') }}" alt="Chumba Resort accommodation"
                 class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-navy/70"></div>
         </div>
