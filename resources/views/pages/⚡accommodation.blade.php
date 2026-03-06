@@ -22,7 +22,7 @@ new class extends Component
 
 <div class="bg-white">
     <!-- Hero Section -->
-    <section class="relative h-[50vh] min-h-[400px] flex items-center justify-center text-center overflow-hidden">
+    <section class="relative h-[50vh] min-h-100 flex items-center justify-center text-center overflow-hidden">
         <div class="absolute inset-0 z-0">
             <img src="{{ asset('images/deluxe-room.jpg') }}" alt="Chumba Resort accommodation"
                 class="w-full h-full object-cover">
