@@ -161,7 +161,7 @@ new class extends Component
                     <div class="h-52 overflow-hidden relative">
                         <img src="{{ $item->image ? Storage::url($item->image) : 'https://via.placeholder.com/400x300' }}"
                             alt="{{ $item->name }}"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            class="w-full h-full object-contain py-2 md:py-3 group-hover:scale-105 transition-transform duration-500">
                         @if($item->is_signature)
                         <span
                             class="absolute top-3 left-3 bg-navy text-white text-[0.65rem] font-semibold tracking-widest uppercase px-3 py-1 rounded-full">Signature</span>
