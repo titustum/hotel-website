@@ -6,4 +6,11 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::livewire('/', 'pages::home');
+Route::livewire('/', 'pages::home')->name('home');
+Route::livewire('/book-conference', 'pages::book-conference')->name('book.conference');
+Route::livewire('/book-room', 'pages::book-room')->name('book.room');
+Route::livewire('/restaurant', 'pages::restaurant')->name('restaurant');
+Route::livewire('/accommodation', 'pages::accommodation')->name('accommodation');
+Route::livewire('/restaurant/category/{categorySlug}', 'pages::menu-category')->name('menu.category');
+Route::livewire('/about', 'pages::about-us')->name('about');
+Route::livewire('/contact', 'pages::contact-us')->name('contact');

@@ -2,7 +2,9 @@
 
 namespace App\Filament\Resources\MenuItems\Schemas;
 
+use App\Models\MenuCategory;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
@@ -19,9 +21,11 @@ class MenuItemForm
                     ->columns(2)
                     ->columnSpanFull()
                     ->schema([
-                        TextInput::make('menu_category_id')
+                        Select::make('menu_category_id')
                             ->required()
-                            ->numeric(),
+                            ->options(
+                                fn()=>MenuCategory::pluck('name','id')
+                            ),
                         TextInput::make('name')
                             ->required(),
                         Textarea::make('description')
@@ -31,7 +35,10 @@ class MenuItemForm
                             ->numeric()
                             ->prefix('$'),
                         FileUpload::make('image')
-                            ->image(),
+                            ->image()
+                            ->imageEditor()
+                            ->disk('public')
+                            ->directory('menu_items'),
                         Toggle::make('is_signature')
                             ->required(),
                         Toggle::make('is_popular')

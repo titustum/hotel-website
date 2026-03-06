@@ -17,7 +17,7 @@ class MenuItemsTable
     {
         return $table
             ->columns([
-                TextColumn::make('menu_category_id')
+                TextColumn::make('category.name')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('name')

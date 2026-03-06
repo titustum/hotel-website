@@ -1,6 +1,9 @@
 <?php
 
+//resources\views\pages\⚡home.blade.php
+
 use Livewire\Component;
+use App\Models\ContactMessage;
 
 new class extends Component
 {
@@ -9,11 +12,42 @@ new class extends Component
     public $testimonials;
     public $galleries;
 
+    // Contact form fields
+    public $name;
+    public $phone;
+    public $email;
+    public $service_interest;
+    public $message;
+
     public function mount(){
         $this->roomTypes = App\Models\RoomType::get();
         $this->galleries = App\Models\Gallery::get();
         $this->conference_rooms = App\Models\ConferenceRoom::get();
         $this->testimonials = App\Models\Testimonial::get();
+    }
+
+    public function sendMessage()
+    {
+        $this->validate([
+            'name' => 'required|min:3',
+            'phone' => 'required|min:10',
+            'email' => 'required|email',
+            'service_interest' => 'required',
+            'message' => 'required|min:5',
+        ]);
+
+        ContactMessage::create([
+            'name' => $this->name,
+            'phone' => $this->phone,
+            'email' => $this->email,
+            'service_interest' => $this->service_interest,
+            'message' => $this->message,
+            'status' => 'new',
+        ]);
+
+        $this->reset(['name','phone','email','service_interest','message']);
+
+        session()->flash('success','Message sent successfully. We will contact you soon.');
     }
 };
 ?>
@@ -50,7 +84,7 @@ new class extends Component
             </p>
             <!-- CTA Buttons -->
             <div class="flex flex-wrap gap-4 justify-center mb-12 animate-[fadeInUp_0.9s_ease_0.6s_both]">
-                <a href="#accommodation"
+                <a href="{{ route('book.room') }}"
                     class="inline-flex items-center gap-2.5 bg-amber-500 hover:bg-amber-400 text-white px-8 py-3.5 rounded-full text-base font-semibold tracking-wide transition-all duration-300 hover:-translate-y-0.5 shadow-[0_4px_20px_rgba(201,147,58,0.45)] hover:shadow-[0_8px_30px_rgba(201,147,58,0.55)]">
                     <i class="fas fa-bed"></i> Book a Room
                 </a>
@@ -511,7 +545,7 @@ new class extends Component
 
                 @foreach ($galleries as $gallery)
                 <img src="{{ Storage::url($gallery->image) }}"
-                    class="rounded-xl shadow-sm hover:scale-105 h-70 w-full transition duration-300">
+                    class="rounded-xl shadow-sm hover:scale-105 h-50 md:h-70 w-full transition duration-300">
                 @endforeach
 
             </div>
@@ -527,8 +561,8 @@ new class extends Component
                 <!-- Image side -->
                 <div class="relative reveal">
                     <div class="rounded-2xl overflow-hidden shadow-2xl">
-                        <img src="https://media.expedia.com/media/content/shared/images/travelguides/sem-hotels-tablet.jpg?impolicy=fcrop&w=1920&h=480&q=medium"
-                            alt="Chumba Resort" class="w-full h-115 object-cover">
+                        <img src="{{ asset('images/oplique-resort-image.jpeg') }}" alt="Chumba Resort"
+                            class="w-full h-115 object-cover">
                     </div>
                     <!-- Accent card -->
                     <div
@@ -695,48 +729,101 @@ new class extends Component
 
                 <!-- Form -->
                 <div class="bg-white rounded-2xl p-8 md:p-10 shadow-2xl reveal">
-                    <h3 class="font-[Cormorant_Garamond] text-2xl font-semibold text-navy mb-7">Send a Message</h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-                        <div>
-                            <label class="block text-xs font-semibold text-navy mb-2 tracking-wide">Full
-                                Name</label>
-                            <input type="text" placeholder="Your name"
-                                class="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 bg-gray-50 transition-all">
+
+                    <h3 class="font-[Cormorant_Garamond] text-2xl font-semibold text-navy mb-7">
+                        Send a Message
+                    </h3>
+
+                    @if(session()->has('success'))
+                    <div class="mb-4 p-3 bg-green-100 text-green-700 rounded-lg text-sm">
+                        {{ session('success') }}
+                    </div>
+                    @endif
+
+                    <form wire:submit.prevent="sendMessage">
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+
+                            <div>
+                                <label class="block text-xs font-semibold text-navy mb-2 tracking-wide">
+                                    Full Name
+                                </label>
+
+                                <input type="text" wire:model="name" placeholder="Your name"
+                                    class="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm bg-gray-50">
+
+                                @error('name') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
+                            </div>
+
+
+                            <div>
+                                <label class="block text-xs font-semibold text-navy mb-2 tracking-wide">
+                                    Phone
+                                </label>
+
+                                <input type="tel" wire:model="phone" placeholder="+254 700 000 000"
+                                    class="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm bg-gray-50">
+
+                                @error('phone') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
+                            </div>
+
                         </div>
-                        <div>
-                            <label class="block text-xs font-semibold text-navy mb-2 tracking-wide">Phone</label>
-                            <input type="tel" placeholder="+254 700 000 000"
-                                class="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 bg-gray-50 transition-all">
+
+
+                        <div class="mb-4">
+                            <label class="block text-xs font-semibold text-navy mb-2 tracking-wide">
+                                Email Address
+                            </label>
+
+                            <input type="email" wire:model="email" placeholder="your@email.com"
+                                class="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm bg-gray-50">
+
+                            @error('email') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
                         </div>
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-xs font-semibold text-navy mb-2 tracking-wide">Email
-                            Address</label>
-                        <input type="email" placeholder="your@email.com"
-                            class="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 bg-gray-50 transition-all">
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-xs font-semibold text-navy mb-2 tracking-wide">Interested
-                            In</label>
-                        <select
-                            class="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 bg-gray-50 transition-all text-gray-600">
-                            <option value="">— Select a service —</option>
-                            <option>Accommodation</option>
-                            <option>Bar & Restaurant</option>
-                            <option>Conference Room</option>
-                            <option>General Enquiry</option>
-                        </select>
-                    </div>
-                    <div class="mb-6">
-                        <label class="block text-xs font-semibold text-navy mb-2 tracking-wide">Your
-                            Message</label>
-                        <textarea rows="4" placeholder="Tell us how we can help…"
-                            class="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 bg-gray-50 transition-all resize-none"></textarea>
-                    </div>
-                    <button
-                        class="w-full py-3.5 bg-navy hover:bg-amber-500 text-white font-semibold text-sm rounded-full flex items-center justify-center gap-2.5 transition-all duration-300 hover:-translate-y-0.5 tracking-wide">
-                        <i class="fas fa-paper-plane"></i> Send Message
-                    </button>
+
+
+                        <div class="mb-4">
+                            <label class="block text-xs font-semibold text-navy mb-2 tracking-wide">
+                                Interested In
+                            </label>
+
+                            <select wire:model="service_interest"
+                                class="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm bg-gray-50 text-gray-600">
+
+                                <option value="">— Select a service —</option>
+                                <option value="Accommodation">Accommodation</option>
+                                <option value="Restaurant">Bar & Restaurant</option>
+                                <option value="Conference">Conference Room</option>
+                                <option value="General">General Enquiry</option>
+
+                            </select>
+
+                            @error('service_interest') <span class="text-red-500 text-xs">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+
+                        <div class="mb-6">
+                            <label class="block text-xs font-semibold text-navy mb-2 tracking-wide">
+                                Your Message
+                            </label>
+
+                            <textarea rows="4" wire:model="message" placeholder="Tell us how we can help…"
+                                class="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm bg-gray-50 resize-none"></textarea>
+
+                            @error('message') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
+                        </div>
+
+
+                        <button type="submit"
+                            class="w-full py-3.5 bg-navy hover:bg-amber-500 text-white font-semibold text-sm rounded-full flex items-center justify-center gap-2.5 transition-all">
+
+                            <i class="fas fa-paper-plane"></i> Send Message
+
+                        </button>
+
+                    </form>
+
                 </div>
             </div>
         </div>
@@ -753,3 +840,10 @@ new class extends Component
 
 
 </main>
+
+
+<script>
+    // Hero Ken Burns
+  document.getElementById('heroBg').style.transform = 'scale(1)';
+
+</script>
