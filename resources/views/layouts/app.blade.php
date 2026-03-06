@@ -52,6 +52,13 @@
                     class="absolute -bottom-0.5 left-0 w-0 h-px bg-amber-300 transition-all duration-300 group-hover:w-full"></span>
             </a>
 
+            <a href="{{  route('restaurant') }}" wire:navigate
+                class="text-white/90 text-sm font-medium uppercase tracking-widest hover:text-amber-300 transition-colors duration-300 relative group">
+                Restaurant & Bar
+                <span
+                    class="absolute -bottom-0.5 left-0 w-0 h-px bg-amber-300 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+
             <a href="{{  route('accommodation') }}" wire:navigate
                 class="text-white/90 text-sm font-medium uppercase tracking-widest hover:text-amber-300 transition-colors duration-300 relative group">
                 Accommodation +
@@ -59,12 +66,7 @@
                     class="absolute -bottom-0.5 left-0 w-0 h-px bg-amber-300 transition-all duration-300 group-hover:w-full"></span>
             </a>
 
-            <a href="{{  route('restaurant') }}" wire:navigate
-                class="text-white/90 text-sm font-medium uppercase tracking-widest hover:text-amber-300 transition-colors duration-300 relative group">
-                Restaurant & Bar
-                <span
-                    class="absolute -bottom-0.5 left-0 w-0 h-px bg-amber-300 transition-all duration-300 group-hover:w-full"></span>
-            </a>
+
 
             <a href="{{  route('about') }}" wire:navigate
                 class="hidden xl:inline text-white/90 text-sm font-medium uppercase tracking-widest hover:text-amber-300 transition-colors duration-300 relative group">
@@ -112,14 +114,14 @@
                 Home
             </a>
 
-            <a href="{{  route('accommodation') }}" wire:navigate
-                class="menu-link font-[Cormorant_Garamond] text-3xl font-light text-white border-b border-white/10 pb-4 hover:text-amber-300 transition-colors">
-                Accommodation +
-            </a>
-
             <a href="{{  route('restaurant') }}" wire:navigate
                 class="menu-link font-[Cormorant_Garamond] text-3xl font-light text-white border-b border-white/10 pb-4 hover:text-amber-300 transition-colors">
                 Restaurant & Bar
+            </a>
+
+            <a href="{{  route('accommodation') }}" wire:navigate
+                class="menu-link font-[Cormorant_Garamond] text-3xl font-light text-white border-b border-white/10 pb-4 hover:text-amber-300 transition-colors">
+                Accommodation +
             </a>
 
             <a href="{{  route('about') }}" wire:navigate
