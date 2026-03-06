@@ -6,6 +6,7 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
 class MenuItemForm
@@ -14,27 +15,32 @@ class MenuItemForm
     {
         return $schema
             ->components([
-                TextInput::make('menu_category_id')
-                    ->required()
-                    ->numeric(),
-                TextInput::make('name')
-                    ->required(),
-                Textarea::make('description')
-                    ->columnSpanFull(),
-                TextInput::make('price')
-                    ->required()
-                    ->numeric()
-                    ->prefix('$'),
-                FileUpload::make('image')
-                    ->image(),
-                Toggle::make('is_signature')
-                    ->required(),
-                Toggle::make('is_popular')
-                    ->required(),
-                Toggle::make('is_premium')
-                    ->required(),
-                Toggle::make('available')
-                    ->required(),
+                Section::make('Gallery details')
+                    ->columns(2)
+                    ->columnSpanFull()
+                    ->schema([
+                        TextInput::make('menu_category_id')
+                            ->required()
+                            ->numeric(),
+                        TextInput::make('name')
+                            ->required(),
+                        Textarea::make('description')
+                            ->columnSpanFull(),
+                        TextInput::make('price')
+                            ->required()
+                            ->numeric()
+                            ->prefix('$'),
+                        FileUpload::make('image')
+                            ->image(),
+                        Toggle::make('is_signature')
+                            ->required(),
+                        Toggle::make('is_popular')
+                            ->required(),
+                        Toggle::make('is_premium')
+                            ->required(),
+                        Toggle::make('available')
+                            ->required(),
+                    ]),
             ]);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Filament\Resources\Rooms\Schemas;
 
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
 class RoomForm
@@ -12,17 +13,22 @@ class RoomForm
     {
         return $schema
             ->components([
-                TextInput::make('room_type_id')
-                    ->required()
-                    ->numeric(),
-                TextInput::make('room_number')
-                    ->required(),
-                TextInput::make('floor'),
-                TextInput::make('status')
-                    ->required()
-                    ->default('available'),
-                Textarea::make('notes')
-                    ->columnSpanFull(),
+                Section::make('Gallery details')
+                    ->columns(2)
+                    ->columnSpanFull()
+                    ->schema([
+                        TextInput::make('room_type_id')
+                            ->required()
+                            ->numeric(),
+                        TextInput::make('room_number')
+                            ->required(),
+                        TextInput::make('floor'),
+                        TextInput::make('status')
+                            ->required()
+                            ->default('available'),
+                        Textarea::make('notes')
+                            ->columnSpanFull(),
+                    ]),
             ]);
     }
 }

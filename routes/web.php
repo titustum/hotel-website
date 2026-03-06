@@ -6,5 +6,4 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-
 Route::livewire('/', 'pages::home');
