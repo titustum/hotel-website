@@ -39,7 +39,7 @@ class RoomBookingChartWidget extends ChartWidget
             ],
 
             'labels' => $data->map(
-                fn (TrendValue $value) => Carbon::parse($value->date)->format('M')
+                fn (TrendValue $value) => Carbon::parse($value->date)->format('M Y')
             ),
         ];
     }
